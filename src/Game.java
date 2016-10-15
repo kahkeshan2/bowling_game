@@ -9,7 +9,7 @@ public class Game {
 
                     player.setTotalScore(player.getTotalScore() + player.getFrame(frame).getFrameScore() + nextRoll.getRollScore() + next_nextRoll.getRollScore());
                 else if (player.getFrame(frame).getFrameType() == FrameType.Spare)
-                    player.setTotalScore(player.getTotalScore() + player.getFrame(frame).getFrameScore() + nextRoll.getRollScore());
+                    player.setTotalScore(player.getTotalScore() + player.getFrame(frame).getFrameScore() + next_nextRoll.getRollScore());
                 else if (player.getFrame(frame).getFrameType() == FrameType.Normal)
                     player.setTotalScore(player.getTotalScore() + player.getFrame(frame).getFrameScore());
             }
