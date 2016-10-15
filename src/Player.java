@@ -43,7 +43,7 @@ public class Player {
         }
     }
     public boolean IsEndFrame() {
-        if (this.getFramesList().size()-1 == Const.End_Frame && this.getFrame(Const.End_Frame).getFrameType() != FrameType.Strike && this.getFrame(Const.End_Frame).getFrameType() != FrameType.Spare)
+        if (this.getFramesList().size()-1 == Const.End_Frame && this.getFrame(Const.End_Frame).getFrameType() == FrameType.Normal)
             return true;
         else if (this.getFramesList().size()-1 > Const.End_Frame) {
             if (this.getFramesList().size() == Const.End_Frame + 1 && this.getFrame(Const.End_Frame + 1).getFrameType() != FrameType.Strike && this.getFrame(Const.End_Frame).getFrameType() == FrameType.Strike)
