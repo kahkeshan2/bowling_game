@@ -1,25 +1,6 @@
 public class Game {
 
-    public static int CalculateScore(Player player) {
-        if(player.IsEndFrame()) {
-            for (int frame = Const.First_Frame; frame < player.getFramesList().size(); frame++) {
-                Roll nextRoll = player.NextRoll(player.getFrame(frame).getRoll(0));
-                Roll next_nextRoll = player.NextRoll(nextRoll);
-                if (player.getFrame(frame).getFrameType() == FrameType.Strike)
 
-                    player.setTotalScore(player.getTotalScore() + player.getFrame(frame).getFrameScore() + nextRoll.getRollScore() + next_nextRoll.getRollScore());
-                else if (player.getFrame(frame).getFrameType() == FrameType.Spare)
-                    player.setTotalScore(player.getTotalScore() + player.getFrame(frame).getFrameScore() + next_nextRoll.getRollScore());
-                else if (player.getFrame(frame).getFrameType() == FrameType.Normal)
-                    player.setTotalScore(player.getTotalScore() + player.getFrame(frame).getFrameScore());
-            }
-            return player.getTotalScore();
-        }else{
-            System.out.println("The Game has not finished");
-            return 0;
-
-        }
-    }
 
 
     public static void main(String[] args) {
@@ -66,7 +47,7 @@ public class Game {
         player_one.AddFrames(frame7);
         player_one.AddFrames(frame8);
         player_one.AddFrames(frame9);
-        System.out.println(CalculateScore(player_one));
+        System.out.println(player_one.CalculateScore());
 
     }
 

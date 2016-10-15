@@ -56,5 +56,25 @@ public class Player {
     return false;
 
     }
+    public int CalculateScore() {
+        if(this.IsEndFrame()) {
+            for (int frame = Const.First_Frame; frame < this.getFramesList().size(); frame++) {
+                Roll nextRoll = this.NextRoll(this.getFrame(frame).getRoll(0));
+                Roll next_nextRoll = this.NextRoll(nextRoll);
+                if (this.getFrame(frame).getFrameType() == FrameType.Strike)
+
+                    this.setTotalScore(this.getTotalScore() + this.getFrame(frame).getFrameScore() + nextRoll.getRollScore() + next_nextRoll.getRollScore());
+                else if (this.getFrame(frame).getFrameType() == FrameType.Spare)
+                    this.setTotalScore(this.getTotalScore() + this.getFrame(frame).getFrameScore() + next_nextRoll.getRollScore());
+                else if (this.getFrame(frame).getFrameType() == FrameType.Normal)
+                    this.setTotalScore(this.getTotalScore() + this.getFrame(frame).getFrameScore());
+            }
+            return this.getTotalScore();
+        }else{
+            System.out.println("The Game has not finished");
+            return 0;
+
+        }
+    }
 
 }
